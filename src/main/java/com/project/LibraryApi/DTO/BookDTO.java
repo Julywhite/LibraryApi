@@ -1,40 +1,25 @@
 package com.project.LibraryApi.DTO;
 
+import lombok.*;
+import javax.validation.constraints.NotNull;
 
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookDTO {
 
+
     private Long id;
+
+    @NotNull
     private String title;
-    private String autho;
+
+    @NotNull
+    private String author;
+
+    @NotNull
     private String isbn;
 
-
-
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAutho() {
-        return autho;
-    }
-    public void setAutho(String autho) {
-        this.autho = autho;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
 }
