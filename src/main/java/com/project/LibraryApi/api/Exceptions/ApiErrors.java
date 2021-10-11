@@ -11,7 +11,6 @@ public class ApiErrors {
 
 
     public ApiErrors( BindingResult bindingResult ) {
-
         this.errors = new ArrayList<>();
 
         bindingResult.getAllErrors().forEach( er -> this.errors.add( er.getDefaultMessage() ) );

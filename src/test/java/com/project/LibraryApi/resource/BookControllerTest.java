@@ -42,7 +42,6 @@ public class BookControllerTest {
     @Test
     @DisplayName("POST method to create a new register")
     public void createBookTest() throws Exception {
-
         BookDTO dto = BookDTO.builder().author("Author").title("Meu livro").isbn("1213212").build();
 
         Book savedBook = Book.builder().id(10L).author("Author").title("Meu livro").isbn("1213212").build();
@@ -68,7 +67,6 @@ public class BookControllerTest {
     @Test
     @DisplayName("Thows a exception when POST method to create a new book fail")
     public void createInvalidBookTest() throws Exception{
-
         String json = new ObjectMapper().writeValueAsString( new BookDTO() );
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
@@ -79,6 +77,6 @@ public class BookControllerTest {
 
         mvc.perform(request)
                 .andExpect( status().isBadRequest() )
-                .andExpect( jsonPath("errors", hasSize(1)) );
+                .andExpect( jsonPath( "errors", hasSize(1) ) );
     }
 }

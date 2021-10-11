@@ -34,6 +34,15 @@ public class BookController {
         return modelMapper.map( entity, BookDTO.class );
     }
 
+    @ExceptionHandler( IllegalArgumentException.class )
+    @ResponseStatus( HttpStatus.BAD_REQUEST )
+    public String handleValidationExceptions( IllegalArgumentException ex ) {
+
+        String message = ex.getMessage();
+
+        return new String( message );
+    }
+
     @ExceptionHandler( MethodArgumentNotValidException.class )
     @ResponseStatus( HttpStatus.BAD_REQUEST )
     public ApiErrors handleValidationExceptions( MethodArgumentNotValidException ex ) {
@@ -42,5 +51,4 @@ public class BookController {
 
         return new ApiErrors( bindingResult );
     }
-
 }
